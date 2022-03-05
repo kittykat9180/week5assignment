@@ -75,6 +75,12 @@ class Menu {
         let species = prompt('Enter Species name:');
         this.species.push(new SpeciesType(species));
     }
+    removeSpecies(){
+        let index = prompt(`Enter index of species to delete:`);
+        if(index > -1 && index < this.species.length){
+            this.species.splice(index, 1);
+        }
+    }
     viewSpecies(){
         let index = prompt('Enter index of species to view:');
         if(index > -1 && index < this.species.length){
