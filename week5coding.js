@@ -72,8 +72,8 @@ class Menu {
         }
     }
     createSpecies(){
-        let species = prompt('Enter Species name:');
-        this.species.push(new SpeciesType(species));
+        let specie = prompt('Enter Species name:');
+        this.species.push(new SpeciesType(specie));
     }
     removeSpecies(){
         let index = prompt(`Enter index of species to delete:`);
@@ -85,10 +85,10 @@ class Menu {
         let index = prompt('Enter index of species to view:');
         if(index > -1 && index < this.species.length){
             this.selectedSpecies = this.species[index];
-            let description = 'Species: ' + this.selectedSpecies.name + '\n'
+            let description = 'Species: ' + this.selectedSpecies.speciesName + '\n'
             for(let i = 0; i < this.selectedSpecies.animals.length; i++){
-                description += i + ')' + this.selectedSpecies.animals[i].speciesName + '-' + 
-                this.selectedSpecies.animals[i].position + '\n';
+                description += i + ')' + this.selectedSpecies.animals[i].name + '-' + 
+                this.selectedSpecies.animals[i].breed + '\n';
             }
             let selection = this.speciesMenuOptions(description);
             switch(selection){
@@ -100,7 +100,7 @@ class Menu {
     }
     viewAllSpecies(){
         let speciesString = '';
-        for(let i= 0; i < this.species.length; i++);{
+        for(let i= 0; i < this.species.length; i++){
             speciesString += i + ') ' + this.species[i].speciesName + '\n';
         }
         alert(speciesString);
